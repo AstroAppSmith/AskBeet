@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number Generator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('https://media1.tenor.com/m/0zPIwLU_g24AAAAd/questions-beetlejuice.gif');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .container {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(3px);
+            max-width: 400px;
+            width: 100%;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+        
+        .number-display {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #4a6baf;
+            height: 6rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1.5rem 0;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        
+        button {
+            background-color: #4a6baf;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        
+        button:hover {
+            background-color: #3a5a9f;
+            transform: scale(1.05);
+        }
+        
+        button:active {
+            transform: scale(0.98);
+        }
+        
+        .footer {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Beet, what number comes between 2 and 4</h1>
+        <p>I think uhhh, I think uhhhhhhhh, I think it's</p>
+        
+        <div class="number-display" id="numberDisplay">--</div>
+        
+        <button id="generateBtn">Generate Number</button>
+        
+        <div class="footer">
+            <p>Range: 0-59</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const generateBtn = document.getElementById('generateBtn');
+            const numberDisplay = document.getElementById('numberDisplay');
+            
+            generateBtn.addEventListener('click', function() {
+                // Generate random number between 0 and 59
+                const randomNumber = Math.floor(Math.random() * 60);
+                
+                // Display with animation
+                numberDisplay.textContent = "";
+                numberDisplay.style.transform = "scale(0.8)";
+                numberDisplay.style.opacity = "0.5";
+                
+                setTimeout(() => {
+                    numberDisplay.textContent = randomNumber;
+                    numberDisplay.style.transform = "scale(1)";
+                    numberDisplay.style.opacity = "1";
+                }, 200);
+            });
+        });
+    </script>
+</body>
+</html>
